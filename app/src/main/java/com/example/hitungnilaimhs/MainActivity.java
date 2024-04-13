@@ -15,9 +15,9 @@ public class MainActivity extends AppCompatActivity {
 
     EditText num1, num2, num3,num4;
     Button hasil;
-    TextView result,huruff;
+    TextView nAngka,nHuruff;
 
-    Double number1, number2, number3, number4,getResult;
+    Double number1, number2, number3, number4,nMahasiswa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
         num3 = findViewById(R.id.edtText3);
         num4 = findViewById(R.id.edtText4);
         hasil = findViewById(R.id.btnHitung);
-        result = findViewById(R.id.txtAngka);
-        huruff = findViewById(R.id.txtHuruf);
+        nAngka = findViewById(R.id.txtAngka);
+        nHuruff = findViewById(R.id.txtHuruf);
 
         hasil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,17 +41,17 @@ public class MainActivity extends AppCompatActivity {
                     number3 = Double.valueOf(num3.getText().toString().trim());
                     number4 = Double.valueOf(num4.getText().toString().trim());
 
-                    getResult = (number1 + number2 + number3 + number4) / 4;
-                    result.setText("Nilai Angka: " + getResult);
+                    nMahasiswa = (number1 * 0.1) + (number2 * 0.15) + (number3 * 0.3) + (number4 * 0.45);
+                    nAngka.setText("Nilai Angka: " + nMahasiswa);
 
-                    if (getResult > 85) {
-                        huruff.setText("Nilai Huruf: A");
-                    } else if (getResult >= 74.99100) {
-                        huruff.setText("Nilai Huruf: B");
-                    } else if (getResult > 64.99) {
-                        huruff.setText("Nilai Huruf: C");
+                    if (nMahasiswa > 85) {
+                        nHuruff.setText("Nilai Huruf: A");
+                    } else if (nMahasiswa >= 74.99100) {
+                        nHuruff.setText("Nilai Huruf: B");
+                    } else if (nMahasiswa > 64.99) {
+                        nHuruff.setText("Nilai Huruf: C");
                     } else {
-                        huruff.setText("Tidak Lulus");
+                        nHuruff.setText("Tidak Lulus");
                     }
                 } else {
 //                    Toast.makeText(MainActivity.this, "Nilai tidak boleh lebih dari 100", Toast.LENGTH_SHORT).show();
